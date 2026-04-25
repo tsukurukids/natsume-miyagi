@@ -145,9 +145,9 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     color: #333;
-    line-height: 1.6; /* 少し行のあいだを広くして読みやすくするよ */
-    overflow-wrap: anywhere; /* どんなに長い言葉でも枠の中で折り返すよ */
-    word-break: normal;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    word-break: auto-phrase; /* 文脈（ことばの区切り）で自然に改行するよ */
 }
 
 .challenge-text {
@@ -214,7 +214,8 @@ h1 {
     position: relative;
     padding-right: 45px;
     line-height: 1.5;
-    overflow-wrap: anywhere; /* 長いお題もしっかり改行するよ */
+    overflow-wrap: anywhere;
+    word-break: auto-phrase; /* リストの中も自然な区切りで改行するよ */
 }
 
 /* リストの中に並ぶ小さな色の玉（新しく追加） */
