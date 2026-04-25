@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お絵描きお題ガチャ</title>
+    <!-- 見た目をきれいにするためのCSSを読み込む -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 【画面1】お題を出すメインの画面 -->
+        <div id="gacha-screen" class="screen active">
+            <h1>🎨 お絵描きお題ガチャ</h1>
+
+            <!-- ジャンルを選ぶエリア -->
+            <div class="genre-selector">
+                <p>どんなお題がいいかな？</p>
+                <button id="fantasy-btn" class="genre-btn active">🏰 ファンタジー</button>
+                <button id="modern-btn" class="genre-btn">🏙️ 現代・日常</button>
+                <button id="sf-btn" class="genre-btn">🚀 宇宙・未来</button>
+            </div>
+
+            <!-- 縛り（チャレンジ）のON/OFF -->
+            <div class="challenge-option">
+                <label>
+                    <input type="checkbox" id="challenge-check">
+                    🔥 チャレンジを足す（制限時間など）
+                </label>
+            </div>
+
+            <!-- お題が表示される場所 -->
+            <div class="prompt-display">
+                <p id="prompt-result">「お題を出す」ボタンを押してね！</p>
+                <p id="challenge-result" class="challenge-text"></p>
+            </div>
+
+            <!-- ボタンが並ぶ場所 -->
+            <div class="actions">
+                <button id="generate-btn" class="main-btn">🎰 お題を出す！</button>
+                <button id="keep-btn" class="sub-btn">⭐ キープして保存する</button>
+            </div>
+
+            <!-- 色をきめるルーレットのエリア（一番下に移動したよ！） -->
+            <div class="color-roulette-area">
+                <p>🎨 カラールーレット</p>
+                <div id="color-display" class="color-display">
+                    <div class="color-ball placeholder">?</div>
+                    <div class="color-ball placeholder">?</div>
+                    <div class="color-ball placeholder">?</div>
+                </div>
+                <!-- ボタンを2つ並べるためにactionsで囲むね -->
+                <div class="actions">
+                    <button id="color-btn" class="sub-btn">🎨 色をきめる！</button>
+                    <button id="keep-color-btn" class="sub-btn">⭐ 色をキープ</button>
+                </div>
+            </div>
+
+            <!-- 一覧画面へ行くためのリンク -->
+            <button id="view-list-btn" class="text-link-btn">📂 保存したお題を見る</button>
+        </div>
+
+        <!-- 【画面2】保存したお題の一覧画面 -->
+        <div id="list-screen" class="screen">
+            <h1>📂 保存したお題</h1>
+            
+            <div class="keep-list-area">
+                <ul id="keep-list">
+                    <!-- ここに保存したお題が追加されていくよ -->
+                </ul>
+            </div>
+
+            <button id="back-btn" class="main-btn">🔙 ガチャに戻る</button>
+        </div>
+    </div>
+
+    <!-- 動きを作るためのJavaScriptを読み込む -->
+    <script src="script.js"></script>
+</body>
+</html>

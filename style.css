@@ -1,0 +1,267 @@
+/* 画面全体の設定 */
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    background: linear-gradient(135deg, #fdfbf7 0%, #f5f5dc 100%); /* もっとうすいベージュの背景 */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 画面（スクリーン）の設定 */
+.screen {
+    display: none; /* ふだんは隠（かく）しておく */
+}
+
+.screen.active {
+    display: block; /* 「active」がついている画面だけ表示する */
+    animation: fadeIn 0.5s; /* ふわっと出す */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 真ん中の白い箱（カード） */
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px; /* 角をまるくする */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* ふわっと浮いているような影 */
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* タイトル */
+h1 {
+    color: #6d4c41; /* おちついた深い茶色 */
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* ジャンルを選ぶボタンが入るエリア */
+.genre-selector {
+    margin-bottom: 20px;
+}
+
+.genre-selector p {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* ジャンルボタンの見た目 */
+.genre-btn {
+    background-color: #f0f0f0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.3s; /* ゆっくり色が変わるように */
+}
+
+/* 選ばれているジャンルボタン */
+.genre-btn.active {
+    background-color: #f5f5dc; /* ベージュ */
+    border-color: #c2a385; /* やさしい茶色 */
+    color: #8d6e63; /* おちついた色 */
+    font-weight: bold;
+}
+
+/* マウスをのせた時の動き */
+.genre-btn:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px); /* 少し上にうかせる */
+}
+
+/* 縛りオプションのチェックボックス */
+.challenge-option {
+    margin-bottom: 20px;
+    background-color: #fff9e6; /* とてもうすいベージュ */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* 色をきめるルーレットのエリア */
+.color-roulette-area {
+    margin-bottom: 20px;
+    background-color: #faf3e0; /* やわらかいベージュ */
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.color-display {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* まるい色の玉 */
+.color-ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 3px solid white;
+    transition: transform 0.3s;
+}
+
+.color-ball:hover {
+    transform: scale(1.1);
+}
+
+/* まだ色が決まっていないとき */
+.color-ball.placeholder {
+    background-color: #ddd;
+    color: #999;
+}
+
+/* お題が表示される場所 */
+.prompt-display {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px dashed #ddd; /* 点線の枠 */
+}
+
+#prompt-result {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.5;
+}
+
+.challenge-text {
+    color: #a67c52; /* 明るめの茶色 */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* メインのボタン（「お題を出す」） */
+.main-btn {
+    background-color: #c2a385; /* こいめのベージュ */
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px #a08468; /* ボタンの底の影 */
+    transition: 0.1s;
+    width: 100%;
+}
+
+.main-btn:active {
+    box-shadow: none;
+    transform: translateY(4px); /* 押した時にへこませる */
+}
+
+/* サブのボタン（「キープ」） */
+.sub-btn {
+    background-color: #d2b48c; /* タン（明るい茶色） */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* キープリストのエリア */
+.keep-list-area {
+    margin-top: 30px;
+    text-align: left;
+    border-top: 2px solid #eee;
+    padding-top: 10px;
+}
+
+/* キープしているリスト（ならび） */
+#keep-list {
+    list-style: none; /* 点をけす */
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto; /* たくさん保存したらスクロールする */
+}
+
+/* リストのひとつひとつ */
+#keep-list li {
+    background-color: #f1f1f1;
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    position: relative;
+    padding-right: 40px;
+}
+
+/* リストの中に並ぶ小さな色の玉（新しく追加） */
+.keep-list-colors {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.mini-color-ball {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* 保存した時間の文字（新しく追加） */
+.keep-time {
+    font-size: 10px;
+    color: #9e9e9e; /* めだたないグレー */
+    margin-top: 5px;
+    display: block;
+}
+
+/* 消去ボタン */
+.delete-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    color: #f44336;
+}
+
+/* 一覧を見るためのリンク風ボタン */
+.text-link-btn {
+    background: none;
+    border: none;
+    color: #8d6e63; /* おちついた茶色 */
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.text-link-btn:hover {
+    color: #6d4c41;
+}
