@@ -265,3 +265,37 @@ h1 {
 .text-link-btn:hover {
     color: #6d4c41;
 }
+
+/* --- 追加：保存した絵を表示するための設定 --- */
+.upload-btn {
+    background-color: #fdfbf7;
+    border: 1px solid #c2a385;
+    color: #8d6e63;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.2s;
+}
+
+.upload-btn:hover {
+    background-color: #f5f5dc;
+}
+
+.uploaded-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px 0;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.hidden-input {
+    display: none;
+}

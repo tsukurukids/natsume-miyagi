@@ -123,6 +123,43 @@ function saveToKeepList(text, colors) {
         li.appendChild(colorArea);
     }
 
+    // --- ここから：お絵描き画像を保存するボタンの追加 ---
+    const uploadBtn = document.createElement('button');
+    uploadBtn.className = 'upload-btn';
+    uploadBtn.innerHTML = '📷 絵を保存する';
+
+    // 隠れたファイル選択ボタン
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+    fileInput.className = 'hidden-input';
+
+    // 画像を表示する場所
+    const imgPreview = document.createElement('img');
+    imgPreview.className = 'uploaded-img';
+    imgPreview.style.display = 'none'; // 最初はかくしておく
+
+    // ボタンを押したらファイル選択を開く
+    uploadBtn.onclick = () => fileInput.click();
+
+    // 写真が選ばれた時の動き
+    fileInput.onchange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                imgPreview.src = event.target.result;
+                imgPreview.style.display = 'block'; // 絵を表示する
+                uploadBtn.style.display = 'none'; // ボタンをかくす
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    li.appendChild(uploadBtn);
+    li.appendChild(imgPreview);
+    // --- ここまで ---
+
     li.appendChild(timeSpan);
 
     const deleteBtn = document.createElement('button');
